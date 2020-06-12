@@ -57,7 +57,7 @@ const Formulario = ({ agregarNuevoGasto }) => {
           className="u-full-width"
           placeholder="Ej. 300"
           value={cantidad}
-          onChange={(e) => setCantidad(parseInt(e.target.value))}
+          onChange={(e) => setCantidad(parseInt(e.target.value, 10))}
         />
       </div>
       <input
