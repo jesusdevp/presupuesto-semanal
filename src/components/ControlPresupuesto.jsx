@@ -1,4 +1,4 @@
-import React, { Fragments, Fragment } from "react";
+import React, { Fragment } from "react";
 
 const ControlPresupuesto = ({ presupuesto, restante }) => {
   return (
