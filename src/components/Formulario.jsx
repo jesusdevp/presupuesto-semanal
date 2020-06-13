@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import Error from "./Error";
 import shortid from "shortid";
 
 const Formulario = ({ setGasto, setCrearGasto }) => {
   const [nombre, setNombre] = useState("");
-  const [cantidad, setCantidad] = useState(0);
+  const [cantidad, setCantidad] = useState("");
   const [error, setError] = useState(false);
 
   //Agregar gasto
@@ -32,7 +33,7 @@ const Formulario = ({ setGasto, setCrearGasto }) => {
 
     //resetear el form
     setNombre("");
-    setCantidad(0);
+    setCantidad("");
   };
 
   return (
@@ -68,6 +69,11 @@ const Formulario = ({ setGasto, setCrearGasto }) => {
       />
     </form>
   );
+};
+
+Formulario.propTypes = {
+  setGasto: PropTypes.func.isRequired,
+  setCrearGasto: PropTypes.func.isRequired,
 };
 
 export default Formulario;

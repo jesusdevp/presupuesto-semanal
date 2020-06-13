@@ -18,15 +18,15 @@ function App() {
     if (creargasto) {
       //Agrega el nuevo presupuesto
       setGastos([...gastos, gasto]);
+
+      //Resetear a false
+      setCrearGasto(false);
+
+      //resta del presupuesto actual
+      const presupuestoRestante = restante - gasto.cantidad;
+      setRestante(presupuestoRestante);
     }
-
-    //Resetear a false
-    setCrearGasto(false);
-
-    //resta del presupuesto actual
-    const presupuestoRestante = restante - gasto.cantidad;
-    setRestante(presupuestoRestante);
-  }, [gasto]);
+  }, [gasto, creargasto, gastos, restante]);
 
   return (
     <div className="container">
@@ -45,7 +45,12 @@ function App() {
                 <Formulario setGasto={setGasto} setCrearGasto={setCrearGasto} />
               </div>
               <div className="one-half column">
-                <Listado gastos={gastos} />
+                <Listado
+                  gastos={gastos}
+                  setGastos={setGastos}
+                  setRestante={setRestante}
+                  restante={restante}
+                />
                 <ControlPresupuesto
                   presupuesto={presupuesto}
                   restante={restante}
